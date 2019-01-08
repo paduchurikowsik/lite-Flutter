@@ -4,22 +4,32 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:lite/utils/drawer.dart';
 import 'package:lite/theme/colors.dart';
 
-_launchCall(String phnum) async {
-  String phoneNumber = "tel:$phnum";
-  print(phnum);
-  if (await canLaunch(phoneNumber)) {
-    await launch(phoneNumber);
-  } else {
-    throw 'Could not launch $phoneNumber';
-  }
-}
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> _launched;
+  String _phoneNum = '8139565825';
+  String _911 = '911';
+
+  Future<void> _makePhoneCall(String phNum) async {
+    if (await canLaunch(phNum)) {
+      await launch(phNum);
+    } else {
+      throw 'Could not launch $phNum';
+    }
+  }
+
+  Widget _launchStatus(BuildContext context, AsyncSnapshot<void> snapshot) {
+    if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    } else {
+      return const Text('');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +85,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Container(
+              margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+              padding: EdgeInsets.all(0.0),
+              child: Divider(color: navbarColor,)),
           // Container(
           //   color: Colors.transparent,
           //   margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
@@ -115,6 +129,10 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Container(
+              margin: EdgeInsets.fromLTRB(40.0, 0.0, 40.0, 0.0),
+              padding: EdgeInsets.all(0.0),
+              child: Divider(color: navbarColor,)),
           Expanded(
               flex: 12,
               child: Container(
@@ -134,7 +152,9 @@ class _HomePageState extends State<HomePage> {
                         style:
                             TextStyle(fontSize: 20.0, color: navbarTextColor),
                       ),
-                      onPressed: (){Navigator.pushNamed(context, '/report');},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/report');
+                      },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                     ),
@@ -148,7 +168,9 @@ class _HomePageState extends State<HomePage> {
                         style:
                             TextStyle(fontSize: 20.0, color: navbarTextColor),
                       ),
-                      onPressed: () => _launchCall("8139565825"),
+                      onPressed: () => setState(() {
+                            _launched = _makePhoneCall('tel:$_phoneNum');
+                          }),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                     ),
@@ -162,10 +184,14 @@ class _HomePageState extends State<HomePage> {
                         style:
                             TextStyle(fontSize: 20.0, color: navbarTextColor),
                       ),
-                      onPressed: () => _launchCall("911"),
+                      onPressed: () => setState(() {
+                            _launched = _makePhoneCall('tel:$_911');
+                          }),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                     ),
+                    FutureBuilder<void>(
+                        future: _launched, builder: _launchStatus),
                   ],
                 ),
 

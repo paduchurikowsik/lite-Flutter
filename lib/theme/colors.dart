@@ -64,7 +64,8 @@ const drawerColor = const Color(0xFF083a54);
 const drawerBackgroundColor = const Color(0xFF0b4d70);
 const drawerListDividerLineColor = const Color(0xFF09405d);
 const drawerListTextColor = const Color(0xFFe2ded6);
-const drawerCopyrightTextColor = const Color(0xFF03202f);
+// const drawerCopyrightTextColor = const Color(0xFF03202f);
+const drawerCopyrightTextColor = Colors.white24;
 
 const homeTextColor = const Color(0xFF5b5b5b);
 

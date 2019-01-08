@@ -9,6 +9,7 @@ Drawer getMenu(BuildContext context) {
           decoration:
               BoxDecoration(color: drawerColor, border: Border.all(width: 0.0)),
           padding: EdgeInsets.all(0.0),
+          margin: EdgeInsets.all(0.0),
           child: SafeArea(
             child: ListTile(
               contentPadding: EdgeInsets.all(10.0),
@@ -25,15 +26,15 @@ Drawer getMenu(BuildContext context) {
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/', (Route<dynamic> route) => false);
                 },
-                child: new Icon(
+                child: Icon(
                   Icons.home,
                   color: navbarColor,
                   size: 40.0,
                 ),
-                shape: new CircleBorder(),
+                shape: CircleBorder(),
                 elevation: 5.0,
                 fillColor: Colors.white,
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
               ),
               // trailing: IconButton(
               //   iconSize: 60.0,
@@ -51,16 +52,21 @@ Drawer getMenu(BuildContext context) {
           ),
         ),
         Expanded(
+          flex: 19,
           child: Container(
+            margin: EdgeInsets.all(0.0),
+            padding: EdgeInsets.all(0.0),
             decoration: BoxDecoration(
                 color: drawerBackgroundColor, border: Border.all(width: 0.0)),
             child: ListView(
+              padding: EdgeInsets.all(0.0),
               children: <Widget>[
                 ListTileTheme(
                   style: ListTileStyle.drawer,
                   textColor: drawerListTextColor,
                   child: ListTile(
                     title: Text('Firm'),
+                    trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
                       Navigator.pushNamedAndRemoveUntil(
@@ -69,11 +75,16 @@ Drawer getMenu(BuildContext context) {
                     },
                   ),
                 ),
+                Divider(
+                  height: 0.0,
+                  color: drawerListDividerLineColor,
+                ),
                 ListTileTheme(
                   style: ListTileStyle.drawer,
                   textColor: drawerListTextColor,
                   child: ListTile(
                     title: Text('Guide'),
+                    trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
                       Navigator.pushNamedAndRemoveUntil(
@@ -82,11 +93,16 @@ Drawer getMenu(BuildContext context) {
                     },
                   ),
                 ),
+                Divider(
+                  height: 0.0,
+                  color: drawerListDividerLineColor,
+                ),
                 ListTileTheme(
                   style: ListTileStyle.drawer,
                   textColor: drawerListTextColor,
                   child: ListTile(
                     title: Text('Services'),
+                    trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
                       Navigator.pushNamedAndRemoveUntil(context, '/services',
@@ -98,7 +114,21 @@ Drawer getMenu(BuildContext context) {
               ],
             ),
           ),
-        )
+        ),
+        Expanded(
+            flex: 1,
+            child: Container(
+              alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: drawerColor, border: Border.all(width: 0.0)),
+                padding: EdgeInsets.all(0.0),
+                child: SafeArea(
+                  top: false,
+                  right: false,
+                  left: true,
+                  bottom: true,
+                  child: Text('\u00a9 2019 Strategic App Solutions, LLC', style: TextStyle(color: drawerCopyrightTextColor),),
+                )))
       ],
     ),
   );
