@@ -23,8 +23,8 @@ Drawer getMenu(BuildContext context) {
               ),
               trailing: RawMaterialButton(
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, '/', (Route<dynamic> route) => false);
+                  // Navigator.pushNamedAndRemoveUntil(context, '/', (Route<dynamic> route) => false);
+                  Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                 },
                 child: Icon(
                   Icons.home,
@@ -69,8 +69,8 @@ Drawer getMenu(BuildContext context) {
                     trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/firm', (Route<dynamic> route) => false);
+                      // Navigator.pushNamedAndRemoveUntil(context, '/firm', (Route<dynamic> route) => false);
+                      Navigator.of(context).pushNamedAndRemoveUntil('/firm', (Route<dynamic> route) => false);
                       // Navigator.popAndPushNamed(context, '/firm');
                     },
                   ),
@@ -87,8 +87,8 @@ Drawer getMenu(BuildContext context) {
                     trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/guide', (Route<dynamic> route) => false);
+                      // Navigator.pushNamedAndRemoveUntil(context, '/guide', (Route<dynamic> route) => false);
+                      Navigator.of(context).pushNamedAndRemoveUntil('/guide', (Route<dynamic> route) => false);
                       // Navigator.popAndPushNamed(context, '/firm');
                     },
                   ),
@@ -105,8 +105,8 @@ Drawer getMenu(BuildContext context) {
                     trailing: Icon(Icons.arrow_forward_ios),
                     // selected: (getCurrentRoute(context).n == "/home") ? true : false,
                     onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(context, '/services',
-                          (Route<dynamic> route) => false);
+                      // Navigator.pushNamedAndRemoveUntil(context, '/services',(Route<dynamic> route) => false);
+                      Navigator.of(context).pushNamedAndRemoveUntil('/services', (Route<dynamic> route) => false);
                       // Navigator.popAndPushNamed(context, '/firm');
                     },
                   ),

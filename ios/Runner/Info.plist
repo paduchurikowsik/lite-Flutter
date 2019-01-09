@@ -41,5 +41,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Our app needs to access the camera to capture Vehicle Damage and Accident photos at the scene.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Our app needs to access the gallery to get Vehicle Damage and Accident photos at the scene.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Our app needs to access the camera to capture Vehicle Damage and Accident photos at the scene.</string>
 </dict>
 </plist>

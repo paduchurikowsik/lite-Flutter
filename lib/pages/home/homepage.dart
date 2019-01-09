@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Future<void> _launched;
   String _phoneNum = '8139565825';
-  String _911 = '911';
+  String _call911 = '911';
 
   Future<void> _makePhoneCall(String phNum) async {
     if (await canLaunch(phNum)) {
@@ -153,7 +153,8 @@ class _HomePageState extends State<HomePage> {
                             TextStyle(fontSize: 20.0, color: navbarTextColor),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/report');
+                        Navigator.of(context).pushNamed('/report');
+                        // Navigator.pushNamed(context, '/report');
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
@@ -185,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                             TextStyle(fontSize: 20.0, color: navbarTextColor),
                       ),
                       onPressed: () => setState(() {
-                            _launched = _makePhoneCall('tel:$_911');
+                            _launched = _makePhoneCall('tel:$_call911');
                           }),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
