@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lite/utils/drawer.dart';
+import 'package:lite_swift/utils/drawer.dart';
 
 class GuidePage extends StatefulWidget {
   @override

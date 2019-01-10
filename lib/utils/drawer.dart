@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lite/theme/colors.dart';
+import 'package:lite_swift/theme/colors.dart';
 
 Drawer getMenu(BuildContext context) {
   return Drawer(

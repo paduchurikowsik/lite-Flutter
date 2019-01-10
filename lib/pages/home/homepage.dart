@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:lite/utils/drawer.dart';
-import 'package:lite/theme/colors.dart';
+import 'package:lite_swift/utils/drawer.dart';
+import 'package:lite_swift/theme/colors.dart';
 
 class HomePage extends StatefulWidget {
   @override

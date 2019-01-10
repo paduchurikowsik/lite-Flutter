@@ -1,4 +1,4 @@
-# lite
+# lite_swift
 
 A new Flutter project.
 

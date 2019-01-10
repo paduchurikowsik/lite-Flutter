@@ -3,8 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_mailer/flutter_mailer.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import 'package:lite/theme/colors.dart';
+import 'package:lite_swift/theme/colors.dart';
 
 class ReportPage extends StatefulWidget {
   const ReportPage({Key key}) : super(key: key);
@@ -17,6 +18,7 @@ class _ReportPageState extends State<ReportPage>
   // GlobalKey<Tab> _scaffoldKey = new GlobalKey();
 
   TabController _tabController;
+  GoogleMapController mapController;
 
   List<String> attachment = [];
 
@@ -154,7 +156,7 @@ class _ReportPageState extends State<ReportPage>
           children: [
             Icon(Icons.directions_transit),
             photoFragment(),
-            Icon(Icons.directions_bike),
+            locationFragment(),
             Icon(Icons.directions_transit),
             Icon(Icons.directions_bike),
           ],
@@ -304,5 +306,40 @@ class _ReportPageState extends State<ReportPage>
         Expanded(child: imagePath),
       ],
     );
+  }
+
+  Widget locationFragment() {
+    return Stack(
+      children: [
+      GoogleMap(
+        onMapCreated: _onMapCreated,
+        options: GoogleMapOptions(
+          compassEnabled: false,
+          rotateGesturesEnabled: false,
+          scrollGesturesEnabled: false,
+          tiltGesturesEnabled: false,
+          trackCameraPosition: false,
+          zoomGesturesEnabled: false,
+          myLocationEnabled: true,
+          mapType: MapType.normal,
+          // cameraPosition: const CameraPosition(
+          //   target: LatLng(-33.852, 151.211),
+          //   zoom: 16.0,
+          // ),
+        ),
+      ),
+    ]);
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    setState(() {
+      mapController = controller;
+      mapController.addMarker(
+        MarkerOptions(
+          position: LatLng(-33.852, 151.211),
+          icon: BitmapDescriptor.defaultMarker,
+        ),
+      );
+    });
   }
 }

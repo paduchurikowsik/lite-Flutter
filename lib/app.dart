@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lite/pages/report/report.dart';
+import 'package:lite_swift/pages/report/report.dart';
 // import 'package:lite/theme/colors.dart';
 
-import 'package:lite/pages/home/homepage.dart';
-import 'package:lite/pages/firm/firm.dart';
-import 'package:lite/pages/guide/guide.dart';
-import 'package:lite/pages/services/services.dart';
+import 'package:lite_swift/pages/home/homepage.dart';
+import 'package:lite_swift/pages/firm/firm.dart';
+import 'package:lite_swift/pages/guide/guide.dart';
+import 'package:lite_swift/pages/services/services.dart';
 
 class LiteApp extends StatelessWidget {
   @override

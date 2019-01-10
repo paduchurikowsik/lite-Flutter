@@ -1,4 +1,4 @@
-package com.example.lite;
+package com.example.liteswift;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
