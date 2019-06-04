@@ -1,6 +1,6 @@
-# lite_swift
+# lite_Sample
 
-A new Flutter project.
+A new Flutter project. This is a sample flutter project create to experiment and get hands on exprience with flutter. This is simple app with forms to get data from the user.
 
 ## Getting Started
 
